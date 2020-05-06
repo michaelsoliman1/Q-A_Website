@@ -1,0 +1,109 @@
+h1 {
+    color: rgb(3, 202, 103);
+    text-align: center;
+  }
+
+.body {
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 50%;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgb(255, 255, 255);
+   
+}
+
+
+.input {
+    width: 70%;
+    height: 60px;
+    padding: 12px 20px;
+    margin:  5px 0;
+    box-sizing: border-box;
+    border: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(46, 153, 3);
+    border-radius: 3px;
+    transition: border-bottom 0.5s ease;
+}
+
+.input:hover {
+    border-bottom: 2px solid rgb(46, 153, 3);
+}
+.head {
+    background-color: #71c067;
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+  
+.button {
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: rgb(46, 153, 3);
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: large;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid rgb(46, 153, 3);
+    transition: background-color 1s ease;
+}  
+.button:hover {
+    background-color: rgb(46, 153, 3);
+    color: white;
+}
+
+  
+.radio-btn {
+    padding: 12px 20px;
+    margin: 10px 20px;
+
+}
+
+#img1 {
+    z-index: -1;
+    position: absolute;
+    left: 300px;
+    top: 00px; 
+    width: 100px;
+    height: 100px;
+    animation-name: imgAnim;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;    
+/*     position: relative;
+ */
+    
+ } 
+
+
+ @keyframes imgAnim {
+    0%   {left:300px; }
+ /*    25%  {left:700x; }
+    50%  {left:700px; } */
+    85%  {left:700px;}
+    100% {left:300px;}
+
+/*     from {
+        left:0px;
+    }
+    to {
+        left:700px;
+    } */
+
+    from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+  }

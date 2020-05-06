@@ -1,6 +1,36 @@
-.App {
-  text-align: center;
+
+.App-content {
+  background-color: tomato;
+  height: 200px;
 }
+
+.App-header {
+ /*  position: -webkit-sticky; /* Safari 
+  position: sticky;
+  top: 0;   */
+  background-color: #000000;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+body {
+  background-color: #fcfcfc;
+  color: rgb(0, 0, 0);
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
+/*   background-image: url("./source.gif");
+  background-size: 100% 100%;   */
+}
+
+
 
 .App-logo {
   height: 40vmin;
@@ -13,16 +43,7 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+
 
 .App-link {
   color: #61dafb;
