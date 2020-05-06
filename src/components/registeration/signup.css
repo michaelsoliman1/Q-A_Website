@@ -1,7 +1,10 @@
-h1 {
-    color: rgb(3, 202, 103);
-    text-align: center;
-  }
+/* @media screen and (max-height: 450px) {
+    .body {padding-top: 15px;
+        width: 80%;
+        font-size: 18px;
+        background-color: black;
+    }
+  } */
 
 .body {
     text-align: center;

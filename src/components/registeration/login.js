@@ -62,7 +62,7 @@ export class Login extends Component {
             <div className="body">
                  <header className = "head">
                     <h1>Welcome to veterians league</h1>
-                    <img id="img1" src={loginImg}></img>    
+                    {/* <img id="img1" src={loginImg}></img> */}    
 
                 </header>
 
