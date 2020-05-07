@@ -1,9 +1,9 @@
 import React, {Component}  from "react";
+import { useHistory } from "react-router-dom";
 import loginImg from "../../login.svg";
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import "./signup.css"
-
 
 export class Login extends Component {
     constructor(props) {
@@ -46,14 +46,16 @@ export class Login extends Component {
         event.preventDefault()
         this.setState({userNameError: "", passwordError: ""})
         const isValid = this.validateForm()  
-    
+/*         const history = useHistory();
+ */
         if (isValid) {
             const {name, value} = event.target
             this.setState({
                 [name] : value
             })
             console.log(this.state)
-
+/*             history.push("/");
+ */
         }        
     }
 
@@ -89,7 +91,7 @@ export class Login extends Component {
                     <br/>
                     <br/>
 
-                    <button className= "button"> Login</button>
+                    <button className= "button" /* href="/home" */> Login</button>
                     <br/>   
                 </form>
                 <br/>

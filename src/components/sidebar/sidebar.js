@@ -12,14 +12,14 @@ export class Sidebar extends Component {
         event.preventDefault()
         console.log("im in open")
         document.getElementById("mySidenav").style.width = "250px";   
-/*         document.getElementById("main").style.marginLeft = "250px";
-        document.body.style.backgroundColor = "rgba(0,0,0,0.4)"; */
+        document.getElementById("home-content").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)"; 
     }
     closeNav(event){
         event.preventDefault()
         document.getElementById("mySidenav").style.width = "0";
-/*         document.getElementById("main").style.marginLeft = "0";
-        document.body.style.backgroundColor = "white"; */
+        document.getElementById("home-content").style.marginLeft = "0";
+        document.body.style.backgroundColor = "white"; 
         console.log("im in close")
 
     }
@@ -28,17 +28,15 @@ export class Sidebar extends Component {
      
         return (
             <div>
-                <script>
-                    
-                </script>
-                <div id="mySidenav" class="sidenav">
-                    <a href="javascript:void(0)" class="closebtn" onClick={this.closeNav}>&times;</a>
-                    <a href="#">About</a>
-                    <a href="#">Services</a>
-                    <a href="#">Clients</a>
-                    <a href="#">Contact</a>
+
+                <div id="mySidenav" className="sidenav">
+                    <a className="closebtn" onClick={this.closeNav}>&#9776;</a>
+                    <a href="#">News</a>
+                    <a href="#">Profile</a>
                 </div>
-                <button onClick={this.openNav}>open</button>
+                <div id="home-content" className="home-content">
+                    <a className="openbtn" onClick={this.openNav}>&#9776;</a>
+                </div>
             </div>
             
             
