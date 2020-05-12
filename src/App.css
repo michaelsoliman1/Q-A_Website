@@ -22,6 +22,7 @@
 
 body {
   background-color: #fcfcfc;
+  background-image: linear-gradient(to bottom right, rgb(240, 255, 234), rgb(40, 161, 36));
   color: rgb(0, 0, 0);
   padding: 40px;
   font-family: Arial;

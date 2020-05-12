@@ -1,4 +1,5 @@
 import React, {Component}  from "react";
+import {Redirect} from "react-router-dom"
 import { useHistory } from "react-router-dom";
 import loginImg from "../../login.svg";
 import Button from 'react-bootstrap/Button'
@@ -13,6 +14,7 @@ export class Login extends Component {
             password: "",
             userNameError: "",
             passwordError: "",
+            isLoggedIn : localStorage.getItem('isLoggedIn')
 
         }
         this.handleChange = this.handleChange.bind(this)
@@ -46,20 +48,20 @@ export class Login extends Component {
         event.preventDefault()
         this.setState({userNameError: "", passwordError: ""})
         const isValid = this.validateForm()  
-/*         const history = useHistory();
- */
+
         if (isValid) {
             const {name, value} = event.target
             this.setState({
                 [name] : value
             })
-            console.log(this.state)
-/*             history.push("/");
- */
+            console.log(this.state.isLoggedIn )
         }        
     }
 
     render() {
+        if(this.state.isLoggedIn !== false) {
+            return <Redirect to="/home"/>
+        }
         return (
             <div className="body">
                  <header className = "head">

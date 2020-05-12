@@ -28,15 +28,12 @@ export class Sidebar extends Component {
      
         return (
             <div>
-
                 <div id="mySidenav" className="sidenav">
                     <a className="closebtn" onClick={this.closeNav}>&#9776;</a>
                     <a href="#">News</a>
                     <a href="#">Profile</a>
                 </div>
-                <div id="home-content" className="home-content">
-                    <a className="openbtn" onClick={this.openNav}>&#9776;</a>
-                </div>
+                <a className="openbtn" onClick={this.openNav}>&#9776;</a>
             </div>
             
             

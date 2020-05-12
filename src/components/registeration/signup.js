@@ -1,4 +1,5 @@
 import React, {Component}  from "react";
+import {Redirect} from "react-router-dom"
 import loginImg from "../../login.svg";
 import Form from "react-bootstrap/Form";
 import "./signup.css"
@@ -16,7 +17,8 @@ export class Signup extends Component {
             userNameError: "",
             fullNameError: "",
             passwordError: "",
-            repeatPasswordError: ""
+            repeatPasswordError: "",
+            isLoggedIn: false
 
 
         }
@@ -38,10 +40,18 @@ export class Signup extends Component {
         if(!this.state.password){
             this.setState({passwordError : "Requiered"})
             isValid = false
+        } else if (this.state.password.length <= 7){
+            this.setState({passwordError : "password must be longer than 7 charachters"})
+            isValid = false
         }
         if(!this.state.repeatPassword){
-            this.setState({passwordError : "Requiered"})
+            this.setState({repeatPasswordError : "Requiered"})
             isValid = false
+        } else {
+          if(this.state.password !== this.state.repeatPassword) {
+            this.setState({repeatPasswordError : "Passwords must match"})
+            isValid = false
+          }
         }
        
         return isValid
@@ -52,20 +62,60 @@ export class Signup extends Component {
         this.setState({
             [name] : value
         })
+        console.log(this.state.isLoggedIn)
+
     }
 
     handleSubmit(event){
         event.preventDefault()
+        const {history} = this.props
+        
         this.setState({userNameError: "", fullNameError: "", passwordError: "",repeatPasswordError: ""})
         const isValid = this.validateForm()  
     
         if (isValid) {
-            const {name, value} = event.target
-            this.setState({
-                [name] : value
-            })
-            console.log(this.state)
+          const url = process.env.REACT_APP_SERVER_URL + "/users/signup"
+          console.log(url)
 
+          let data = {
+            'userName': this.state.userName,
+            'fullName': this.state.fullName,
+            'password': this.state.password,
+          }
+          console.log(data)
+          console.log(JSON.stringify(data))
+
+          fetch(url , {
+            method:'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept':'application/json'
+            },
+            body:JSON.stringify(data) 
+          })
+          .then((response) =>{
+            console.log(response.status) 
+            console.log(response)
+            response.json().then((body) => {
+              console.log(body)
+              if(response.status === 400) { 
+                this.setState({
+                  userNameError : "username already exists, please choose another one",
+                  isLoggedIn : false
+                })
+              }
+              else if (response.status === 201) {
+                var token = body.token
+                this.setState({isLoggedIn : true})
+
+                localStorage.setItem(('userToken'), token)
+                localStorage.setItem(('isLoggedIn'), this.state.isLoggedIn)
+
+
+                history.push('/home')
+              }
+            })
+          })
         }        
     }
 
