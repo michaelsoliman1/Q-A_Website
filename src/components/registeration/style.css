@@ -108,5 +108,27 @@
       }
       to {
         transform: rotate(360deg);
-      }
-  }
+    }
+ }
+
+.logout-btn {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: rgb(46, 153, 3);
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: large;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid rgb(46, 153, 3);
+    transition: background-color 1s ease;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.logout-btn:hover {
+    background-color: rgb(46, 153, 3);
+    color: white;
+}

@@ -1,6 +1,7 @@
 import React, {Component}  from "react";
 import {Redirect} from "react-router-dom"
 import { Sidebar } from '../sidebar/sidebar'
+import Logout from '../registeration/logout'
 
 import "./home.css"
 
@@ -12,14 +13,11 @@ export class Home extends Component {
         }
     }
 
-    componentDidMount() {
-        const token =localStorage.getItem('userToken') 
-        console.log(token)
-
-    }
+    
     
     render () {
-        if(this.state.isLoggedIn === false){
+        if(localStorage.getItem('isLoggedIn') === "false"){
+            console.log("i'm in home ")
             return <Redirect to="/"/>
         }
         return (
@@ -28,6 +26,8 @@ export class Home extends Component {
                 <div id="home-content" className = "home-content">
                     <h1>MAIN PAGE</h1>
                 </div>
+                <Logout/>
+
             </div>
         )
     }

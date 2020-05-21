@@ -1,10 +1,9 @@
 import React, {Component}  from "react";
 import {Redirect} from "react-router-dom"
-import { useHistory } from "react-router-dom";
 import loginImg from "../../login.svg";
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import "./signup.css"
+import "./style.css"
 
 export class Login extends Component {
     constructor(props) {
@@ -42,24 +41,58 @@ export class Login extends Component {
         this.setState({
             [name] : value
         })
+        console.log(localStorage.getItem('isLoggedIn'))
     }
 
     handleSubmit(event){
         event.preventDefault()
+        const {history} = this.props
+
         this.setState({userNameError: "", passwordError: ""})
         const isValid = this.validateForm()  
 
         if (isValid) {
-            const {name, value} = event.target
-            this.setState({
-                [name] : value
+            const url = process.env.REACT_APP_SERVER_URL + "/users/login"
+
+            let data = {
+                'userName': this.state.userName,
+                'password': this.state.password,
+            }
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept':'application/json'
+                },
+                body: JSON.stringify(data)
             })
-            console.log(this.state.isLoggedIn )
+            .then((response) => {
+                response.json()
+                .then((body) => {
+                    if(response.status === 400) { 
+                        this.setState({
+                          userNameError : "Incorrect username or password",
+                          isLoggedIn : false
+                        })
+                        localStorage.setItem(('isLoggedIn'), this.state.isLoggedIn)
+                    }
+                    else if (response.status === 200) {
+                        var token = body.token
+                        this.setState({isLoggedIn : true})
+
+                        localStorage.setItem(('userToken'), token)
+                        localStorage.setItem(('isLoggedIn'), this.state.isLoggedIn)
+                        history.push('/home')
+                    } 
+                })
+            })
         }        
     }
 
     render() {
-        if(this.state.isLoggedIn !== false) {
+        if(localStorage.getItem('isLoggedIn') === "true") {
+            console.log(localStorage.getItem('isLoggedIn'))
+            console.log("i'm in login ")
             return <Redirect to="/home"/>
         }
         return (
