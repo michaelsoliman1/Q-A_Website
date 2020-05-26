@@ -1,4 +1,5 @@
-import React, {Component}  from "react";
+import React, {Component}  from "react"
+import Logout from '../registeration/logout'
 import "./sidebar.css"
 
 export class Sidebar extends Component {
@@ -32,6 +33,7 @@ export class Sidebar extends Component {
                     <a className="closebtn" onClick={this.closeNav}>&#9776;</a>
                     <a href="#">News</a>
                     <a href="#">Profile</a>
+                    <Logout/>
                 </div>
                 <a className="openbtn" onClick={this.openNav}>&#9776;</a>
             </div>

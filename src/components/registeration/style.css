@@ -124,8 +124,9 @@
     border: 1px solid rgb(46, 153, 3);
     transition: background-color 1s ease;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    bottom: 80px;
+    margin-left:-70px;
+
 }
 
 .logout-btn:hover {

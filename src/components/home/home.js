@@ -24,9 +24,8 @@ export class Home extends Component {
             <div>
                 <Sidebar/>
                 <div id="home-content" className = "home-content">
-                    <h1>MAIN PAGE</h1>
+                    <h1>There is no question right now, <br/>come back in ...</h1>
                 </div>
-                <Logout/>
 
             </div>
         )
