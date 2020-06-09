@@ -4,9 +4,8 @@ before_script:
   - npm install
 
 node_js:
-  - 8
-  - 7
-  - 6
+  - 13
+  - 12
 
 script:
   - npm run build
