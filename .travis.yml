@@ -1,5 +1,8 @@
 language: node_js
 
+env:
+    CI: ""
+
 before_script:
   - npm install
 
