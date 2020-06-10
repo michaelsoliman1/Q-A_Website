@@ -1,0 +1,11 @@
+version: 0.0
+os: linux
+
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ubuntu
+hooks:
+  AfterInstall:
+    - location: /scripts/afterinstall.sh
+      runas: root
