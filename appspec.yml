@@ -1,6 +1,10 @@
 version: 0.0
 os: linux
 
+files:
+  - source: /
+    destination: /home/ubuntu/app0
+
 permissions:
   - object: /
     pattern: "**"
@@ -8,4 +12,5 @@ permissions:
 hooks:
   AfterInstall:
     - location: /scripts/afterinstall.sh
+      timeout: 300
       runas: root
