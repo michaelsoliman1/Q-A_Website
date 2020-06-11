@@ -12,3 +12,13 @@ node_js:
 
 script:
   - npm run build:client
+
+deploy:
+  - provider: codedeploy
+    wait_until_deployed: true
+    revision_type: github
+    access_key_id: AKIAJMX6KMMOWJGDOL3A
+    secret_access_key: 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
+    application: "app00"
+    deployment_group: "lastdep"
+    region: "us-east-1"  
