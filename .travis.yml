@@ -7,7 +7,6 @@ before_script:
   - npm install
 
 node_js:
-  - 13
   - 12
 
 script:
