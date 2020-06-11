@@ -15,7 +15,6 @@ script:
 
 deploy:
   - provider: codedeploy
-    wait_until_deployed: true
     revision_type: github
     access_key_id: AKIA5RGKFL34LURUFMNY
     secret_access_key: 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
