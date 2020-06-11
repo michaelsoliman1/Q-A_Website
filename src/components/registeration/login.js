@@ -107,7 +107,7 @@ export class Login extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <input className="input"
                         name= "userName" 
-                        placeholder= "userName" 
+                        placeholder= "username" 
                         onChange= {this.handleChange} 
                         value={this.state.userName}>
                     </input>
@@ -115,6 +115,7 @@ export class Login extends Component {
                     <br/>
    
                     <input className="input"
+                        type= "password"
                         name= "password" 
                         placeholder= "password" 
                         onChange= {this.handleChange}

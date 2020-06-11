@@ -123,7 +123,7 @@ export class Signup extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <input className="input"
                         name= "userName" 
-                        placeholder= "userName" 
+                        placeholder= "username" 
                         onChange= {this.handleChange} 
                         value={this.state.userName}>
                     </input>
