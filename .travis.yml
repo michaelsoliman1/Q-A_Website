@@ -11,9 +11,8 @@ deploy:
   provider: codedeploy
   revision_type: github
   access_key_id: AKIA5RGKFL34LURUFMNY
-  secret_access_key:
-    secure: 0p4Bwk9qt9Ixmcj8xQimYgu5lriKcPQCmZFWG2pPwiasyf8QraY99jySQ5NADrg4Gr0EbdfkECzwH4MmoLPOZmZcHlkQ0wtPG/JquGuQSX0KfklKzAET9yBc+WbsmWqZ/3LdGCHgaDaJHc3bDfvqaLKQhD3y8vmqpEwgB2OhC3N+n+36haYp5ig3uEavlvnbSfTRU73LnWrVKHXehBgElwYWT1JjBtWeS/br9YoVKMzlKQFVtf+5d6uAhpPtEMXR/aMoxpfg4RmcX6dHZp32fd9x7SHZmtmyKj7OQpUrT0I/YO6qOghTHJu3JKRh/LVUgMQ3DkdCghvj7M48PS9uxpnFqFkPwmJknRMGGMNUgu+MHxujI6XxKk1pVKqg1pGYgbJZJHR3sR69Q0J6waxxvoNNnz6iAbiJ7X2gSjeHAU2el3T8yvnARKdg5yveIWf5sj3mxv4L5U+X3q765yG383gAoHJ6pNb1B+VZ0wQWxm5l4+2FdidCkeGWZe8dy99ds1+z1EWhfWgv3kctPTm0ht/2E1da/OgKvz5CvTzNaD/Pq5ROS2oeVxCEyiOWYlCpUvW9r9vL8KWele9Q3I7yFPld9qEjcqK6QdCS2vMv1aRt3eXN/Ga59r3/yLlbNXPBs1fE87D7J8kvhlBTUUinkYdUNhrnFQCupKSIEIAO4aU=
-
+  secret_access_key: EUtXEvtlIJ76QF5nqIuhTas9iGc6Y1PbYDvx2/cd
   application: app0
   deployment_group: travis
   region: "us-east-1"
+
