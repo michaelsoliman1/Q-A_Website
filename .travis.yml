@@ -17,8 +17,8 @@ deploy:
   - provider: codedeploy
     wait_until_deployed: true
     revision_type: github
-    access_key_id: AKIAJMX6KMMOWJGDOL3A
-    secret_access_key: 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
-    application: "app00"
-    deployment_group: "lastdep"
-    region: "us-east-1"  
+    access_key_id: AKIA5RGKFL34LURUFMNY
+    secret_access_key: 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
+    application: "app0"
+    deployment_group: "travis"
+    region: "us-east-1"
