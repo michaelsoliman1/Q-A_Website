@@ -15,23 +15,25 @@ script:
 deploy:
   - provider: codedeploy
     revision_type: github
-    secure: "ZxJatz4Sw4UkAOIxhi/2VGpoxqgazDx5hdXJK0XfbBbxFqjw6PAkYdQqvl
-      ybSTocMtFd0b50W2inRV+tzYreAi60swfotsGZ7KT3GtBQ+nk+1Ki7R4E+WizCEcc4SM7ud
-      nKZbE69BARQCnwyXlyQeS3aW2AdFo2ZRCWLmVOgRS8IP+Kc61ypedcHX9MKsqacX7RD+7c+
-      +Bck7XoxwjeQOQc488KIkaJvYOwjW0sf6J4hvpvJzOPEKUhoMhZc+hVc1T69OsAPDRZ5iDoH
-      nvNa4a44rzXhR8qXHRhWS3ZSD/VceAaWHjziThWyWaJyhBX64ePxNv5QEvUIagkV3FHy6Gz2Ga5UapFN/WBwoLOkLMC
-      Lvk2+f99Umxm2HW33dblj6J6UqBzpuB9pGpEPCmT/fIfGCYiwo9SVmmVQ2MFtZzy3wb/1UxBn1uT3Ju49Pu765UUitm7vf7
-      gdq6gFy8mIzaFunkIAMPYoWgxTxEsMwA8XvmRQ8P5tBZAlmuLtpydcA65FClec4K45s9ubkjiFX3I8kWN8l7oupGOwly14KLSwJni
-      Cqcxar4pCbLOUpZ5VNEE4NBwp/xvpJIuv79er8jDtZV97n92izIrErwF
-      UK3WQPg59htct53fLvXjz+tkX3s+4YOolQBYJoh2CZaypgDxByWATJOjpsEugEjEp0lU="
-    secure: "PexeE6yEi/6Rq/ApxAtOG82L6E822kmeLgZBzFd8NTqZayQ66Mhd8dtPHTbt4GbJilcWob795po40
-      +p2E1vx/OZ0fE537+xAoy+dL9qth6K3ZWG3pKoHs17AiSj1VCkKwV8nW8uNa2q1zG8o0vRMxNb4Ku+5tcl/gQn/FudM7y
-      2XhpkClq9q2i+EOXodS+o5RD9/2tXvG5i5VJ835P/AxvAjYhCQaE5EWNuQspe2CvAGBcvc9mZXh2AHGWC4mTLbH1UYZBF
-      ofIfl6lCKsR9qsAUF+tcayoKae/2jimQ8UhSQdMsNbyDAHDL/vI2OlhkGGlPbPDkMv06M9tdpp+bfESHYCr17CR3qwJWe
-      SYF16I3lMPVNgJsVDgcXXCYAPO0ciJ0LkCx218c7lHD1g5L6xKkLafNGO+o16DK0cw1cJ0Jg08m4GJdzZK0rZRU0Mk7sqs
-      yKUfujrnolJ+O1AIyI1HeHHtPh3vFNPjob66uoB/NRRFpQSAKmWM2sevSiscYQDnfh53mSBjcVku6Hm13ujg2375orfi6Z7
-      WDYTi5OdjwWQUfSUe/WgZWMAK+QSjcnafFLM39kSJD1N0pyok7T663R8VnJ3fEsvpMdGEpFHwe/mJAWUoKZKxbG3djkLco
-      I1Ftpw8IjDDT5ebwNLzgkYJr8eRNWhldPxlyYWZ6q7bs="   
+    access_key_id:
+      secure: "ZxJatz4Sw4UkAOIxhi/2VGpoxqgazDx5hdXJK0XfbBbxFqjw6PAkYdQqvl
+        ybSTocMtFd0b50W2inRV+tzYreAi60swfotsGZ7KT3GtBQ+nk+1Ki7R4E+WizCEcc4SM7ud
+        nKZbE69BARQCnwyXlyQeS3aW2AdFo2ZRCWLmVOgRS8IP+Kc61ypedcHX9MKsqacX7RD+7c+
+        +Bck7XoxwjeQOQc488KIkaJvYOwjW0sf6J4hvpvJzOPEKUhoMhZc+hVc1T69OsAPDRZ5iDoH
+        nvNa4a44rzXhR8qXHRhWS3ZSD/VceAaWHjziThWyWaJyhBX64ePxNv5QEvUIagkV3FHy6Gz2Ga5UapFN/WBwoLOkLMC
+        Lvk2+f99Umxm2HW33dblj6J6UqBzpuB9pGpEPCmT/fIfGCYiwo9SVmmVQ2MFtZzy3wb/1UxBn1uT3Ju49Pu765UUitm7vf7
+        gdq6gFy8mIzaFunkIAMPYoWgxTxEsMwA8XvmRQ8P5tBZAlmuLtpydcA65FClec4K45s9ubkjiFX3I8kWN8l7oupGOwly14KLSwJni
+        Cqcxar4pCbLOUpZ5VNEE4NBwp/xvpJIuv79er8jDtZV97n92izIrErwF
+        UK3WQPg59htct53fLvXjz+tkX3s+4YOolQBYJoh2CZaypgDxByWATJOjpsEugEjEp0lU="
+    secret_access_key:    
+      secure: "PexeE6yEi/6Rq/ApxAtOG82L6E822kmeLgZBzFd8NTqZayQ66Mhd8dtPHTbt4GbJilcWob795po40
+        +p2E1vx/OZ0fE537+xAoy+dL9qth6K3ZWG3pKoHs17AiSj1VCkKwV8nW8uNa2q1zG8o0vRMxNb4Ku+5tcl/gQn/FudM7y
+        2XhpkClq9q2i+EOXodS+o5RD9/2tXvG5i5VJ835P/AxvAjYhCQaE5EWNuQspe2CvAGBcvc9mZXh2AHGWC4mTLbH1UYZBF
+        ofIfl6lCKsR9qsAUF+tcayoKae/2jimQ8UhSQdMsNbyDAHDL/vI2OlhkGGlPbPDkMv06M9tdpp+bfESHYCr17CR3qwJWe
+        SYF16I3lMPVNgJsVDgcXXCYAPO0ciJ0LkCx218c7lHD1g5L6xKkLafNGO+o16DK0cw1cJ0Jg08m4GJdzZK0rZRU0Mk7sqs
+        yKUfujrnolJ+O1AIyI1HeHHtPh3vFNPjob66uoB/NRRFpQSAKmWM2sevSiscYQDnfh53mSBjcVku6Hm13ujg2375orfi6Z7
+        WDYTi5OdjwWQUfSUe/WgZWMAK+QSjcnafFLM39kSJD1N0pyok7T663R8VnJ3fEsvpMdGEpFHwe/mJAWUoKZKxbG3djkLco
+        I1Ftpw8IjDDT5ebwNLzgkYJr8eRNWhldPxlyYWZ6q7bs="   
     application: "app0"
     deployment_group: "travis"
     region: "us-east-1"
