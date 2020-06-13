@@ -25,8 +25,6 @@ export class Home extends Component {
                 <Sidebar/>
                 <div id="home-content" className = "home-content">
                     <h1>Welcome to , <br/>Veterians League</h1>
-                    <br/>
-                    <h1>W KOL SANA WENTA TYYB YA5OYAA xDD</h1>
                 </div>
 
             </div>
