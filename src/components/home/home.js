@@ -26,7 +26,6 @@ export class Home extends Component {
                 <div id="home-content" className = "home-content">
                     <h1>Welcome to , <br/>Veterians League</h1>
                 </div>
-
             </div>
         )
     }
