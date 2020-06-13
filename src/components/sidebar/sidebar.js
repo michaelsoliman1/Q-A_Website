@@ -13,8 +13,8 @@ export class Sidebar extends Component {
         event.preventDefault()
         console.log("im in open")
         document.getElementById("mySidenav").style.width = "250px";   
-        document.getElementById("home-content").style.marginLeft = "250px";
-        document.body.style.backgroundColor = "rgba(0,0,0,0.4)"; 
+/*         document.getElementById("home-content").style.marginLeft = "250px";
+ */        document.body.style.backgroundColor = "rgba(0,0,0,0.4)"; 
     }
     closeNav(event){
         event.preventDefault()

@@ -97,13 +97,10 @@ export class Login extends Component {
         }
         return (
             <div className="body">
-                 <header className = "head">
-                    <h1>Welcome to veterians league</h1>
-                    {/* <img id="img1" src={loginImg}></img> */}    
+                <h1>Welcome to veterians league</h1>
+                {/* <img id="img1" src={loginImg}></img> */}    
 
-                </header>
-
-                <h1>Login</h1>
+                <h2>Login</h2>
                 <form onSubmit={this.handleSubmit}>
                     <input className="input"
                         name= "userName" 

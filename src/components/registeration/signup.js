@@ -114,12 +114,10 @@ export class Signup extends Component {
     render() {
         return (
             <div className="body">
-                 <header className = "head">
                     <h1>Welcome to veterans league</h1>
                    {/*  <img id="img1" src={loginImg}></img> */}    
-                </header>
-
-                <h1>Sign up for free</h1>
+                   
+                <h2>Sign up for free</h2>
                 <form onSubmit={this.handleSubmit}>
                     <input className="input"
                         name= "userName" 

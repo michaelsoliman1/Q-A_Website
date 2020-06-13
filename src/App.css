@@ -22,13 +22,12 @@
 
 body {
   background-color: #fcfcfc;
-  background-image: linear-gradient(to bottom right, rgb(240, 255, 234), rgb(5, 2, 199));
-  color: rgb(0, 0, 0);
+  background-image: linear-gradient(to bottom right, rgb(69, 75, 67), rgb(0, 0, 0));
+  color: rgb(255, 255, 255);
   padding: 40px;
   font-family: Arial;
   text-align: center;
-/*   background-image: url("./source.gif");
-  background-size: 100% 100%;   */
+
 }
 
 

@@ -9,12 +9,14 @@
 .body {
     text-align: center;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 0;
     margin-bottom: 5%;
-    width: 50%;
-    padding: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-color: rgb(255, 255, 255);
+    width: 60%;
+    padding: 0px;
+/*     background-color: rgb(255, 255, 255);
+ */
+/*     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ */
    
 }
 
@@ -25,43 +27,58 @@
     padding: 12px 20px;
     margin:  5px 0;
     box-sizing: border-box;
-    border: 1px solid rgb(255, 255, 255);
-    border-bottom: 1px solid rgb(46, 153, 3);
-    border-radius: 3px;
-    transition: border-bottom 0.5s ease;
+    background-color: rgb(69, 75, 67);
+    border: 1px solid rgb(69, 75, 67);
+    border-bottom: 1px solid rgb(138, 138, 138);
+    border-radius: 5px;
+    transition: border-bottom 2s ease-in-out;
+    transition: width 0.5s ease-in-out ;
 }
 
 .input:hover {
-    border-bottom: 2px solid rgb(46, 153, 3);
+    border-bottom: 2px solid rgb(0, 0, 0);
+    width: 73%;
 }
-.head {
-    background-color: #71c067;
-    min-height: 20vh;
+.body h1{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-  
+    font-size: calc(17px + 6vmin);
+    font-weight: lighter;
+    font-variant: small-caps;
+    font-style: oblique;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(231, 231, 231);
+}  
+.body h2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(15px + 3vmin);
+    font-weight: lighter;
+    font-variant: small-caps;
+    font-style: oblique;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(231, 231, 231);
+}  
 .button {
-    width: 80%;
-    background-color: rgb(255, 255, 255);
+    width: 80%; 
+    background-color: rgb(179, 179, 179);
     border: none;
-    color: rgb(46, 153, 3);
+    color: rgb(0, 0, 0);
     padding: 16px 32px;
     text-decoration: none;
     font-size: large;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 10px;
-    border: 1px solid rgb(46, 153, 3);
-    transition: background-color 1s ease;
+    border: 1px solid rgb(0, 0, 0);
+    transition: background-color 0.5s ease;
 }  
 .button:hover {
-    background-color: rgb(46, 153, 3);
+    background-color: rgb(47, 47, 47);
     color: white;
 }
 
@@ -112,24 +129,25 @@
  }
 
 .logout-btn {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(179, 179, 179);
     border: none;
-    color: rgb(46, 153, 3);
+    color: rgb(0, 0, 0);
     padding: 16px 32px;
     text-decoration: none;
     font-size: large;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 10px;
-    border: 1px solid rgb(46, 153, 3);
-    transition: background-color 1s ease;
+    border: 1px solid rgb(0, 0, 0);
+    transition: background-color 0.5s ease;
     position: absolute;
     bottom: 80px;
     margin-left:-70px;
 
 }
 
+
 .logout-btn:hover {
-    background-color: rgb(46, 153, 3);
+    background-color: rgb(47, 47, 47);
     color: white;
 }
