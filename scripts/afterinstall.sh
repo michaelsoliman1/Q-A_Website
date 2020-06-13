@@ -5,5 +5,5 @@ npm install
 npm rebuild
 npm run build:client
 chmod +x server/appserver.js
-sudo systemctl restart server
+sudo systemctl restart appserver
 
