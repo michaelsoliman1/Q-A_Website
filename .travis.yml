@@ -7,3 +7,12 @@ node_js:
 - 12
 script:
 - npm run build:client
+deploy:
+  provider: codedeploy
+  revision_type: github
+  access_key_id: "AKIA5RGKFL34J2JMXKFM"
+  secret_access_key:
+    secure: "boqpp2Jzpxa8yPNGFa/+c3U/fXDzc4pNiu5bFpZPNYHXubkYWJ6/K+YbDGE5dHhmd8Zarl4MJCWU4fIauwiSn6YF2q8DvS+A4X1FrmDthRsCKx/a47shomBo+/cgy5tvxWQm5fkMBZ7dxEdZI6eeNlK9rfde0QluBoz4qapFBhUu5fNEyEQlKwXCDt95KEWmGKQjnJuQfacm6v/KfyqpU/cktpA+tl3sCwshnxD1fDCgmFy/5Gtjfk5iUbWDl9Ot7AGXSK/RrxqovIbv0PkfNhJRIif96YSpvLBkiA1+j6ANDIdmH9wzPPl5dMr+0e5FxZLXXmdNM60Vh5i7lbiHPAXFdG++ak9tWJ2JJyT31IZllTVrxCrG234ySvOsUPsSbJ3Efo7Kyh4o4GzTRL3QJcDViGNdKZmYu2S/lA2V6WqDU/FiQZY+JIREGlxOkG4G/pA2v2cEhI577M/6qor8RUiZhYwqV3dZr2R82JqozUlrIUZktMiemH0Bg/LHUDkieSS/pwwygoIBrCVkbyukd6n/iU/ugKElbQAAKXs3tEf5xTZ1rfWgu70zc3KRUSIbhkLGA9l8A21DQ0j+CglyIrX3ROu+yAqr3jH/VuL1jpMfhhmQ60CF8a8NnmNcVYe83/vbek5rn4p1cgQCuTFcHwLyBCm+r+LhwRLx7kojsxU="
+  application: app0
+  deployment_group: group0
+  region: us-east-1
