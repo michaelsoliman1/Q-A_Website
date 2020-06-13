@@ -121,7 +121,7 @@ export class Signup extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <input className="input"
                         name= "userName" 
-                        placeholder= "username" 
+                        placeholder= "Username" 
                         onChange= {this.handleChange} 
                         value={this.state.userName}>
                     </input>
@@ -130,7 +130,7 @@ export class Signup extends Component {
                     
                     <input className="input"
                         name= "fullName" 
-                        placeholder= "fullName" 
+                        placeholder= "Fullname" 
                         onChange= {this.handleChange}
                         value={this.state.fullName}>
                     </input>
@@ -140,6 +140,7 @@ export class Signup extends Component {
                     <input className="input"
                         name= "password" 
                         placeholder= "password" 
+                        type= "password"
                         onChange= {this.handleChange}
                         value={this.state.password}>
                     </input>
@@ -150,6 +151,7 @@ export class Signup extends Component {
                     <input className="input"
                         name= "repeatPassword" 
                         placeholder= "repeat password" 
+                        type= "password"
                         onChange= {this.handleChange} 
                         value={this.state.repeatPassword} >
                     </input>
