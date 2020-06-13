@@ -1,6 +1,8 @@
 language: node_js
 env:
   CI: ''
+  global:
+    secure: y+IQE9fklROEd0fQjfSCR7jCF8zY1uLiC0z0Hcf9sx6WjiB4z6uSVBXxQGluQdI0iGoH2DG3FT21Nh/Ath5VOfWpd4wA9D8kUDwgkSEod3++0LaOjYdVpYrsFKRnMglbDn7u3QQP3+poFtJQO4Ztu8hlWvUwaUCb0v21y7WyjyQwv/OXXCACFRZit14F8Ll5yOVXC9UUaU5Z3ZOaxhRyMa3Fr4Qxxdwao4fah7wOINybgmcgPe5xrZGVEp15pn6kO1OmvIjci6bNnWmJpLMxBvH+AbXNe67Fb8K7WA+KumpW5tRgU67bDyHBah7KZJQ6ILvgGoHr8wv3+l2G7H7bp34PVEsL/zNL5P+XfNogm0K2+WJAHGrZDgWevLP1sZz/0Xk5SEj0bePRKZ+K5Dcmnj8ZmdDxbwj2/gIhxr8nwV0IspEDo+Mb56g8Od68epuV/QEJehg65DXx90dRu2P8QOiD9uUepX8SQvHAfhmFB4ZJwjsNeu8bzFoLlHS/lAKFB0KbRUshzqOBw3CegpCKW19A5PXZyWC7i2M6PPGSNlnJv+m8wv6z1dEv10bIDmt+b7FV/XNfN4wX525dIHdiv8ctYytrfo2n2OTUDUMLc/Wgn00XBW3/Ui+YcB7n+oWFGqMbYZh6c22rPL7sdRjbrHQ90hgYoQ7shS6peCWHVzs=
 before_script:
 - npm install
 node_js:
@@ -10,9 +12,7 @@ script:
 deploy:
   provider: codedeploy
   revision_type: github
-  access_key_id: "AKIA5RGKFL34J2JMXKFM"
-  secret_access_key:
-    secure: "boqpp2Jzpxa8yPNGFa/+c3U/fXDzc4pNiu5bFpZPNYHXubkYWJ6/K+YbDGE5dHhmd8Zarl4MJCWU4fIauwiSn6YF2q8DvS+A4X1FrmDthRsCKx/a47shomBo+/cgy5tvxWQm5fkMBZ7dxEdZI6eeNlK9rfde0QluBoz4qapFBhUu5fNEyEQlKwXCDt95KEWmGKQjnJuQfacm6v/KfyqpU/cktpA+tl3sCwshnxD1fDCgmFy/5Gtjfk5iUbWDl9Ot7AGXSK/RrxqovIbv0PkfNhJRIif96YSpvLBkiA1+j6ANDIdmH9wzPPl5dMr+0e5FxZLXXmdNM60Vh5i7lbiHPAXFdG++ak9tWJ2JJyT31IZllTVrxCrG234ySvOsUPsSbJ3Efo7Kyh4o4GzTRL3QJcDViGNdKZmYu2S/lA2V6WqDU/FiQZY+JIREGlxOkG4G/pA2v2cEhI577M/6qor8RUiZhYwqV3dZr2R82JqozUlrIUZktMiemH0Bg/LHUDkieSS/pwwygoIBrCVkbyukd6n/iU/ugKElbQAAKXs3tEf5xTZ1rfWgu70zc3KRUSIbhkLGA9l8A21DQ0j+CglyIrX3ROu+yAqr3jH/VuL1jpMfhhmQ60CF8a8NnmNcVYe83/vbek5rn4p1cgQCuTFcHwLyBCm+r+LhwRLx7kojsxU="
+  access_key_id: AKIA5RGKFL34J2JMXKFM
   application: app0
   deployment_group: group0
   region: us-east-1
