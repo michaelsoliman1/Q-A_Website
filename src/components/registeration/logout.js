@@ -30,15 +30,12 @@ class Logout extends Component {
         .then((response) => {
             response.json()
             .then((body) => {
-                console.log(body)
-
                 if(response.status === 200) {
                     localStorage.removeItem('userToken')
                     
                     this.setState({isLoggedIn: false})
                    
                     localStorage.setItem(('isLoggedIn'), this.state.isLoggedIn)
-                    console.log(localStorage.getItem('isLoggedIn')) 
 
                     history.push('/')
                 }
@@ -49,7 +46,6 @@ class Logout extends Component {
     
     render () {
         if(localStorage.getItem('isLoggedIn') === "false"){
-            console.log("i'm in home ")
             return <Redirect to="/"/>
         }
         return (

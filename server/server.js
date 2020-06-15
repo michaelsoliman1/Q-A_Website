@@ -7,8 +7,7 @@ require('./db/mongoose.js')
 const userRouter = require('./routers/user')
 
 const port = process.env.PORT || 5000
-/* console.log(process)
- */const app = express()
+const app = express()
 app.use(express.json())
 app.use(cors())
 app.use(userRouter)

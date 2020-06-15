@@ -41,7 +41,6 @@ export class Login extends Component {
         this.setState({
             [name] : value
         })
-        console.log(localStorage.getItem('isLoggedIn'))
     }
 
     handleSubmit(event){
@@ -91,8 +90,6 @@ export class Login extends Component {
 
     render() {
         if(localStorage.getItem('isLoggedIn') === "true") {
-            console.log(localStorage.getItem('isLoggedIn'))
-            console.log("i'm in login ")
             return <Redirect to="/home"/>
         }
         return (

@@ -11,7 +11,6 @@ export class Sidebar extends Component {
 
     openNav(event){
         event.preventDefault()
-        console.log("im in open")
         document.getElementById("mySidenav").style.width = "250px";   
 /*         document.getElementById("home-content").style.marginLeft = "250px";
  */        document.body.style.backgroundColor = "rgba(0,0,0,0.4)"; 
@@ -21,7 +20,6 @@ export class Sidebar extends Component {
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("home-content").style.marginLeft = "0";
         document.body.style.backgroundColor = "white"; 
-        console.log("im in close")
 
     }
 

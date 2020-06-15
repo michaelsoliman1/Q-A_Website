@@ -56,7 +56,6 @@ export class Signup extends Component {
         this.setState({
             [name] : value
         })
-        console.log(this.state.isLoggedIn)
     }
 
     handleSubmit(event){
@@ -68,15 +67,12 @@ export class Signup extends Component {
     
         if (isValid) {
             const url = process.env.REACT_APP_SERVER_URL + "/users/signup"
-            console.log(url)
 
             let data = {
                 'userName': this.state.userName,
                 'fullName': this.state.fullName,
                 'password': this.state.password,
             }
-            console.log(data)
-            console.log(JSON.stringify(data))
 
             fetch(url , {
                 method:'POST',
@@ -87,10 +83,7 @@ export class Signup extends Component {
                 body:JSON.stringify(data) 
             })
             .then((response) => {
-                console.log(response.status) 
-                console.log(response)
                 response.json().then((body) => {
-                    console.log(body)
                     if(response.status === 400) { 
                         this.setState({
                           userNameError : "username already exists, please choose another one",
