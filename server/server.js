@@ -4,7 +4,7 @@ require('dotenv').config()
 const express = require('express')
 const cors = require("cors")
 require('./db/mongoose.js')
-const userRouter = require('./routers/user')
+const userRouter = require('./routers/user.router')
 
 const port = process.env.PORT || 5000
 const app = express()

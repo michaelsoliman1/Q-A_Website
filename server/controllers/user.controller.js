@@ -1,11 +1,7 @@
-const express = require('express')
-const User = require('../models/users')
-const jwt = require("jsonwebtoken")
-const auth = require("../middleware/auth")
-const bcrypt = require('bcrypt')
-const router = new express.Router()
+const User = require('../models/user.model')
 
-router.post('/users/login',async(req,res) =>{
+
+exports.login = (async(req,res) =>{
     try{
         const user = await User.findByCredentials(req.body.userName,req.body.password)
         const token = await user.genAuthToken()
@@ -19,7 +15,7 @@ router.post('/users/login',async(req,res) =>{
     }
 })
 
-router.post('/users/signup',async (req ,res ) => {
+exports.signup = async (req ,res ) => {
     const user = new User(req.body)
     try{
         await user.save()
@@ -35,8 +31,9 @@ router.post('/users/signup',async (req ,res ) => {
             message : e.message
         })
     }
-})
-router.post('/users/logout', auth, async (req, res) => {
+}
+
+exports.logout =  async (req, res) => {
     try {
         req.user.tokens = req.user.tokens.filter((token) => {
             return token.token !== req.token
@@ -49,5 +46,4 @@ router.post('/users/logout', auth, async (req, res) => {
     } catch (e) {
         res.status(500).send()
     }
-})
-module.exports = router
+}
