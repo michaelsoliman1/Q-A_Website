@@ -1,4 +1,5 @@
 const User = require('../models/user.model')
+const Answer = require('../models/answer.model')
 
 
 exports.login = (async(req,res) =>{
@@ -46,4 +47,32 @@ exports.logout =  async (req, res) => {
     } catch (e) {
         res.status(500).send()
     }
+}
+
+
+exports.myAnswers = async (req,res) => {
+    try {
+        await req.user.populate('answers').execPopulate()
+        res.send(req.user.answers)
+
+        /* const answers = await Answer.find({owner: req.user._id})
+        answers.forEach(async answer => {
+            await answer.populate('question').execPopulate()
+
+        });
+
+        if (answers.length == 0){
+            return res.status(404).send({
+                message: "you dont have any answers"
+            })
+        } 
+        res.send({
+            answers
+        }) */
+    }catch(e){
+        res.status(400).send({
+            message : e.message
+        })    
+    }
+    
 }

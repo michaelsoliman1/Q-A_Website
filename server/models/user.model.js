@@ -3,6 +3,7 @@ const validator = require('validator')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
+
 const userSchema = mongoose.Schema ({
     userName: {
         type: String,
@@ -34,6 +35,12 @@ const userSchema = mongoose.Schema ({
             }
         }
     ]
+})
+
+userSchema.virtual('answers', {
+    ref: 'Answer',
+    localField: '_id',
+    foreignField: 'owner'
 })
 
 userSchema.methods.genAuthToken = async function(){
