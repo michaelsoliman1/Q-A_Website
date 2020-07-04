@@ -4,22 +4,25 @@ const Answer = require('../models/answer.model')
 
 
 exports.submitAnswer = async (req,res) => {
+    let denied = false
+    const user = req.user
     try {
-        const user = req.user
         if (!user){
             throw new Error()     
         }
         const answers = await Answer.find({owner: user._id}) 
-        console.log(answers)
-        //error here! must fix
         answers.forEach((answer) => {
             if(answer.question == req.body.question)
             {
-                return res.status(403).send({
-                    message: "you already answered this question"
-                })
+                denied = true
             }
         })
+        if(denied){
+            return res.status(403).send({
+                message: "you already answered this question"
+            })
+        }
+       
         const newAnswer = new Answer({
             ...req.body,
             owner: req.user._id,
@@ -37,33 +40,27 @@ exports.submitAnswer = async (req,res) => {
         })    
     }
 }
-/*
-exports.myAnswerss = async (req,res) => {
-    try {
-         await req.user.populate('answers').execPopulate()
-        await req.user.answers.populate('question').execPopulate()
-        console.log(req.user.answers.question)
-        res.send(req.user.answers) 
 
-        const answers = await Answer.find({owner: req.user._id}).populate('question').execPopulate()
-        /* answers.forEach(async answer => {
-            await answer.populate('question').execPopulate()
 
-        }); 
+exports.updateAnswer = async (req,res) => {
+    const update = Object.keys(req.body)
 
-        if (answers.length == 0){
-            return res.status(404).send({
-                message: "you dont have any answers"
-            })
-        } 
-        res.send({
-            answers
-        })
-    }catch(e){
-        res.status(400).send({
-            message : e.message
-        })    
+    if (update != 'answer') {
+        return res.status(403).send({ error: 'Invalid update!' })
     }
-    
+
+    const _id = req.params.id
+
+    try {
+        const answer = await Answer.findById(_id )
+        answer[update] = req.body[update]
+        await answer.save()
+        res.send(answer)
+    } catch (e) {
+        res.status(400).send(e)
+    }
 }
-*/
+
+exports.deleteAnswer = async (req,res) => {
+
+}

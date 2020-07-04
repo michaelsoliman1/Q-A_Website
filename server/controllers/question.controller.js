@@ -4,7 +4,7 @@ exports.getQuestions = async (req ,res ) => {
     try{
         const questions = await Question.find()
         if(!questions){
-            res.send({
+            return res.send({
                 message: "no questions"
             })
         }
@@ -19,21 +19,21 @@ exports.getQuestions = async (req ,res ) => {
         })
     }
 }
-
+//get a question by id with all its' answers 
 exports.getQuestionById = async (req ,res ) => {
     try{
         const question = await Question.findById({_id: req.params._id})
         if(!question){
-            res.send({
+            return res.send({
                 message: "no matching questions"
             })
         }
+        await question.populate('answers').execPopulate()
         res.send({
-            question    
+            question,    
+            answers: question.answers
         })
     }catch(e){
-        console.log(e)
-        console.log(e.message)
         res.status(400).send({
             message : e.message
         })
