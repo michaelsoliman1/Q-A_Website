@@ -1,10 +1,11 @@
 import React, {Component}  from "react";
 import {Redirect} from "react-router-dom"
-import loginImg from "../../login.svg";
+/* import loginImg from "../../login.svg";
 import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form' */
 import "./style.css"
-
+/* import loginComponent from "./login.component"
+ */
 export class Login extends Component {
     constructor(props) {
         super(props);
@@ -51,7 +52,7 @@ export class Login extends Component {
         const isValid = this.validateForm()  
 
         if (isValid) {
-            const url = process.env.REACT_APP_SERVER_URL + "/users/login"
+            const url = process.env.REACT_APP_SERVER_URL + "/user/login"
 
             let data = {
                 'userName': this.state.userName,
@@ -92,7 +93,7 @@ export class Login extends Component {
         if(localStorage.getItem('isLoggedIn') === "true") {
             return <Redirect to="/home"/>
         }
-        return (
+        return ( 
             <div className="body">
                 <h1>Welcome to veterians league</h1>
                 {/* <img id="img1" src={loginImg}></img> */}    
@@ -107,7 +108,7 @@ export class Login extends Component {
                     </input>
                     <div style={{color: "red"}}>{this.state.userNameError}</div> 
                     <br/>
-   
+
                     <input className="input"
                         type= "password"
                         name= "password" 
@@ -126,9 +127,9 @@ export class Login extends Component {
                 </form>
                 <br/>
                 <h4> Doesn't have an account ? <a href="/signup">Sign up</a></h4>
-           </div>
+            </div>
 
-        )
+        )   
     }
 }
 

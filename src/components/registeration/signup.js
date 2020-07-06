@@ -1,7 +1,7 @@
 import React, {Component}  from "react";
-import {Redirect} from "react-router-dom"
+/* import {Redirect} from "react-router-dom"
 import loginImg from "../../login.svg";
-import Form from "react-bootstrap/Form";
+import Form from "react-bootstrap/Form"; */
 import "./style.css"
 
 
@@ -66,7 +66,7 @@ export class Signup extends Component {
         const isValid = this.validateForm()  
     
         if (isValid) {
-            const url = process.env.REACT_APP_SERVER_URL + "/users/signup"
+            const url = process.env.REACT_APP_SERVER_URL + "/user/signup"
 
             let data = {
                 'userName': this.state.userName,

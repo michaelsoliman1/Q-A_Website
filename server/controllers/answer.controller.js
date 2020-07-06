@@ -4,6 +4,7 @@ const Answer = require('../models/answer.model')
 
 
 exports.submitAnswer = async (req,res) => {
+    console.log(req)
     let denied = false
     const user = req.user
     try {
@@ -18,7 +19,7 @@ exports.submitAnswer = async (req,res) => {
             }
         })
         if(denied){
-            return res.status(403).send({
+            return res.status(400).send({
                 message: "you already answered this question"
             })
         }
@@ -31,7 +32,7 @@ exports.submitAnswer = async (req,res) => {
         await newAnswer.save()
 
         res.send({
-            newAnswer
+            answer: newAnswer
         })   
 
     }catch(e){

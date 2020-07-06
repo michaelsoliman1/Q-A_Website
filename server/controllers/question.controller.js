@@ -31,7 +31,7 @@ exports.getQuestionById = async (req ,res ) => {
         await question.populate('answers').execPopulate()
         res.send({
             question,    
-            answers: question.answers
+            //answers: question.answers
         })
     }catch(e){
         res.status(400).send({

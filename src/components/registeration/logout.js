@@ -20,7 +20,7 @@ class Logout extends Component {
         const {history} = this.props
 
         const token = localStorage.getItem('userToken')
-        let url = process.env.REACT_APP_SERVER_URL + "/users/logout"
+        let url = process.env.REACT_APP_SERVER_URL + "/user/logout"
         fetch(url, {
             method : "POST",
             headers: {
@@ -49,8 +49,8 @@ class Logout extends Component {
             return <Redirect to="/"/>
         }
         return (
-            <div>
-               <button className="logout-btn" onClick={this.handleSubmit}>Logout</button>
+            <div className="dropdown-content">
+               <a onClick={this.handleSubmit}>Logout</a>
             </div>
         )
     }

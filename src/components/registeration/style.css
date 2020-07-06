@@ -1,10 +1,16 @@
-/* @media screen and (max-height: 450px) {
-    .body {padding-top: 15px;
-        width: 80%;
-        font-size: 18px;
-        background-color: black;
+@media screen and (max-height: 600px) {
+    .body {
+      width: 90%;
+      font-size: 18px;
     }
-  } */
+    .body input{
+      height: 50px;
+      width: 80%;
+    }
+    .body input:hover {
+      width: 84%;
+    }
+}
 
 .body {
     text-align: center;
@@ -12,12 +18,8 @@
     margin-top: 0;
     margin-bottom: 5%;
     width: 60%;
-    padding: 0px;
-/*     background-color: rgb(255, 255, 255);
- */
-/*     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
- */
-   
+    height: 670px;
+    padding: 0px;   
 }
 
 
@@ -106,29 +108,7 @@
  } 
 
 
- @keyframes imgAnim {
-    0%   {left:300px; }
- /*    25%  {left:700x; }
-    50%  {left:700px; } */
-    85%  {left:700px;}
-    100% {left:300px;}
-
-/*     from {
-        left:0px;
-    }
-    to {
-        left:700px;
-    } */
-
-    from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-    }
- }
-
-.logout-btn {
+/* .logout-btn {
     background-color: rgb(179, 179, 179);
     border: none;
     color: rgb(0, 0, 0);
@@ -151,3 +131,4 @@
     background-color: rgb(47, 47, 47);
     color: white;
 }
+ */

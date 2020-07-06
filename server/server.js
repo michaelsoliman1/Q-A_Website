@@ -9,11 +9,21 @@ const questionRouter = require('./routers/question.router')
 const answerRouter = require('./routers/answer.router')
 
 
-const port = process.env.PORT || 5000
+const port = process.env.SERVER_PORT || 5000
 const app = express()
 app.use(express.json())
+
+
+
 app.use(cors())
-app.use(userRouter)
+app.use(function(req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS,GET,PUT,POST,DELETE');
+    res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");  
+    next()
+})
+
+app.use(userRouter) 
 app.use(questionRouter)
 app.use(answerRouter)
 
