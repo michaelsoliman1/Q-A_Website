@@ -4,7 +4,6 @@ const Answer = require('../models/answer.model')
 
 
 exports.submitAnswer = async (req,res) => {
-    console.log(req)
     let denied = false
     const user = req.user
     try {

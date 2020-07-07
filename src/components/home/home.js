@@ -20,6 +20,9 @@ export class Home extends Component {
     componentDidMount(){
         const token = localStorage.getItem('userToken')
         const url = process.env.REACT_APP_SERVER_URL + "/questions/5f03407e9483852a129e3086"
+
+        //azaker objects , json objects, stringfy, el7agat de
+
         console.log(url)
         
         fetch(url, {
@@ -33,6 +36,7 @@ export class Home extends Component {
         .then((response) => {
             response.json()
             .then((body) => {
+                console.log(body)
                 this.setState({question: body.question})
                 console.log(this.state.question)
             })
@@ -87,19 +91,21 @@ export class Home extends Component {
                    'Accept': 'application/json',
                    'Authorization': token
                }, 
-               body: data
+               body: JSON.stringify(data)
             })
             .then((response) => {
+                console.log(response)
+                
                 console.log(response.status)
                 response.json().then((body) => {
-                    if (response.status === 401){
+                    if (response.status === 400){
                         this.setState({answerError: "You already answered this question"})
                     }
                     else if (response.status === 200) {    
                         this.setState({answerError: "submitted"})
                     }
                     else if (response.status === 404){
-                        this.setState({answerError: "there was an error connecting to the server, please try again later"})
+                        this.setState({answerError: "..."})
                     }
                 })
             })
