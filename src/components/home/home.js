@@ -21,7 +21,6 @@ export class Home extends Component {
         const token = localStorage.getItem('userToken')
         const url = process.env.REACT_APP_SERVER_URL + "/questions/5f03407e9483852a129e3086"
 
-        //azaker objects , json objects, stringfy, el7agat de
 
         console.log(url)
         
