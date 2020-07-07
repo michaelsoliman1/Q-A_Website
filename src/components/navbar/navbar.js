@@ -17,7 +17,7 @@ export class Navbar extends Component {
                     <li className="dropdown">
                         <a href="javascript:void(0)" className="dropbtn">Profile</a>
                         <div className="dropdown-content">
-                            <a href="#">My Profile</a>
+                            <a href="/myprofile">My Profile</a>
                             <Logout />
                         </div>
                     </li>

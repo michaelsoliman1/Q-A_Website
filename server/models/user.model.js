@@ -24,6 +24,10 @@ const userSchema = mongoose.Schema ({
                 throw new Error("the password shouldn't include password term")
         }
     },
+    points: {
+        type: Number,
+        defualt: 0
+    },
     image:{
         // empty for now
     },

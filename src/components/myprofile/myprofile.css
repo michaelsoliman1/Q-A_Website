@@ -1,0 +1,26 @@
+.profile {
+  text-align: center;
+  background-color: violet;
+}
+
+.score {
+    position: fixed;
+    margin-left: 20px;
+    padding: 10px;
+    background-color: yellowgreen;
+}
+
+.answers {
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    background-color: yellow;
+    height: 500px;
+}
+
+/* @media only screen and (max-width:670px) {
+    .score, .profile {
+      width:90%;
+        margin: auto;
+    }
+  } */

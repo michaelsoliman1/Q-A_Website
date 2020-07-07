@@ -93,8 +93,6 @@ export class Home extends Component {
                body: JSON.stringify(data)
             })
             .then((response) => {
-                console.log(response)
-                
                 console.log(response.status)
                 response.json().then((body) => {
                     if (response.status === 400){
