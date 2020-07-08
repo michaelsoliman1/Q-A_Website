@@ -36,7 +36,12 @@ export class Home extends Component {
             response.json()
             .then((body) => {
                 console.log(body)
-                this.setState({question: body.question})
+                if (body.question) {
+                    this.setState({question: body.question})
+                }
+                else {
+                    this.setState({questionError: "No questions right now!"})
+                }
                 console.log(this.state.question)
             })
         })
@@ -117,25 +122,29 @@ export class Home extends Component {
             console.log("i'm in home ")
             return <Redirect to="/"/>
         }
+        
         return (
             <div className= "home-content ">
                 {/*<Sidebar/>*/}
                 <Navbar/>
                 <div className="question">
-                    <h2>{this.state.question.question}</h2>
-                    <h2>{this.state.questionError}</h2>
-                    <form onSubmit={this.handleSubmit}>
-                        <input className="qst-input"
-                            name= "answer" 
-                            placeholder= "Your Answer" 
-                            onChange= {this.handleChange} 
-                            value={this.state.answer}>
-                
-                        </input>
-                        <div style={{color: "red"}}>{this.state.answerError}</div> 
-                        <br/>
-                        <button className= "qst-button"> Submit Answer</button>
-                    </form>
+                    {!this.state.question ? (<h2>{this.state.questionError}</h2> ) : 
+                    (
+                        <div>
+                            <h2>{this.state.question.question}</h2>
+                            <form onSubmit={this.handleSubmit}>
+                                <input className="qst-input"
+                                    name= "answer" 
+                                    placeholder= "Your Answer" 
+                                    onChange= {this.handleChange} 
+                                    value={this.state.answer}>
+                                </input>
+                                <div style={{color: "red"}}>{this.state.answerError}</div> 
+                                <br/>
+                                <button className= "qst-button"> Submit Answer</button>
+                            </form>
+                        </div>    
+                    )}
                 </div>
             </div>
         )
