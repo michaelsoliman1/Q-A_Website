@@ -8,7 +8,7 @@ export class Home extends Component {
         super(props)
         this.state = {
             isLoggedIn: localStorage.getItem('isLoggedIn'),
-            question: "",
+            activeQuestion: "",
             questionError: "",
             answer: "",
             answerError : "", 
@@ -19,7 +19,7 @@ export class Home extends Component {
 
     componentDidMount(){
         const token = localStorage.getItem('userToken')
-        const url = process.env.REACT_APP_SERVER_URL + "/questions/5f03407e9483852a129e3086"
+        const url = process.env.REACT_APP_SERVER_URL + "/questions/activeQuestion"
 
 
         console.log(url)
@@ -35,14 +35,13 @@ export class Home extends Component {
         .then((response) => {
             response.json()
             .then((body) => {
-                console.log(body)
                 if (body.question) {
-                    this.setState({question: body.question})
+                    this.setState({activeQuestion: body.question})
                 }
                 else {
                     this.setState({questionError: "No questions right now!"})
                 }
-                console.log(this.state.question)
+                console.log(this.state.activeQuestion)
             })
         })
         .catch(e => {
@@ -84,7 +83,7 @@ export class Home extends Component {
             const url = process.env.REACT_APP_SERVER_URL + "/submitAnswer"
 
             let data = {
-                'question': this.state.question._id,
+                'question': this.state.activeQuestion._id,
                 'answer': this.state.answer,
             }
 
@@ -118,6 +117,8 @@ export class Home extends Component {
     }
     
     render () {
+        const activeQuestion = this.state.activeQuestion
+
         if(localStorage.getItem('isLoggedIn') === "false"){
             console.log("i'm in home ")
             return <Redirect to="/"/>
@@ -127,25 +128,24 @@ export class Home extends Component {
             <div className= "home-content ">
                 {/*<Sidebar/>*/}
                 <Navbar/>
-                <div className="question">
-                    {!this.state.question ? (<h2>{this.state.questionError}</h2> ) : 
-                    (
-                        <div>
-                            <h2>{this.state.question.question}</h2>
-                            <form onSubmit={this.handleSubmit}>
-                                <input className="qst-input"
-                                    name= "answer" 
-                                    placeholder= "Your Answer" 
-                                    onChange= {this.handleChange} 
-                                    value={this.state.answer}>
-                                </input>
-                                <div style={{color: "red"}}>{this.state.answerError}</div> 
-                                <br/>
-                                <button className= "qst-button"> Submit Answer</button>
-                            </form>
-                        </div>    
-                    )}
-                </div>
+                {/*a question component should be seperate from the home compenent*/}
+                {!this.state.activeQuestion ? (<h2>{this.state.questionError}</h2> ) : 
+                (
+                    <div className="question" >
+                        <h3>{activeQuestion.question}</h3>
+                        <form onSubmit={this.handleSubmit}>
+                            <input className="qst-input"
+                                name= "answer" 
+                                placeholder= "Your Answer" 
+                                onChange= {this.handleChange} 
+                                value={this.state.answer}>
+                            </input>
+                            <div style={{color: "red"}}>{this.state.answerError}</div> 
+                            <br/>
+                            <button className= "qst-btn"> Submit Answer</button>
+                        </form>
+                    </div>    
+                )}
             </div>
         )
     }

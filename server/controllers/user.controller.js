@@ -1,5 +1,7 @@
 const User = require('../models/user.model')
 const Answer = require('../models/answer.model')
+const Question = require('../models/question.model')
+const { set } = require('mongoose')
 
 
 exports.login = (async(req,res) =>{
@@ -52,23 +54,31 @@ exports.logout =  async (req, res) => {
 
 exports.myAnswers = async (req,res) => {
     try {
-        await req.user.populate('answers').execPopulate()
-        res.send(req.user.answers)
 
-        /* const answers = await Answer.find({owner: req.user._id})
-        answers.forEach(async answer => {
-            await answer.populate('question').execPopulate()
-
-        });
+        const answers = await Answer.find({owner: req.user._id})    
 
         if (answers.length == 0){
             return res.status(404).send({
                 message: "you dont have any answers"
             })
         } 
+
+        let popAnswers = []
+        await Promise.all(answers.map(async answer => {
+            let question0 =  await Question.findById({_id : answer.question})
+            let newA = {
+                answer_id : answer._id,
+                question_id : question0._id,
+                answer : answer.answer,
+                question: question0.question
+            } 
+            popAnswers.push(newA)
+        }))
+        
         res.send({
-            answers
-        }) */
+            answers : popAnswers
+        })
+
     }catch(e){
         res.status(400).send({
             message : e.message

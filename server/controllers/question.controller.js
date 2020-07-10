@@ -4,7 +4,7 @@ exports.getQuestions = async (req ,res ) => {
     try{
         const questions = await Question.find()
         if(!questions){
-            return res.send({
+            return res.status(404).send({
                 message: "no questions"
             })
         }
@@ -24,7 +24,7 @@ exports.getQuestionById = async (req ,res ) => {
     try{
         const question = await Question.findById({_id: req.params._id})
         if(!question){
-            return res.send({
+            return res.status(404).send({
                 message: "no matching questions"
             })
         }
@@ -40,12 +40,29 @@ exports.getQuestionById = async (req ,res ) => {
     }
 }
 
+exports.getActiveQuestion = async (req, res) => {
+    const question = await Question.findOne({expired : false})
+    try {
+        if(!question){
+            return res.status(404).send()
+        }
+    
+        res.send({question})
+    }catch(e) {
+        res.status(400).send({
+            message: e.message
+        })
+    }
+    
+
+}
+
 exports.addQuestion = async (req ,res ) => {
-    const q = new Question(req.body)
+    const question = new Question(req.body)
     try{
-        await q.save()
+        await question.save()
         res.status(201).send({
-            q
+            question
         })
     }catch(e){
         console.log(e)

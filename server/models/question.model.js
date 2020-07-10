@@ -17,7 +17,10 @@ const questionSchema = mongoose.Schema ({
         type: String,
         required: true
     },
-
+    expired: {
+        type: Boolean,
+        default: false,
+    },
     answerImg: {
         type: Buffer
     }

@@ -10,13 +10,7 @@
     background-color: yellowgreen;
 }
 
-.answers {
-    width: 50%;
-    margin: auto;
-    padding: 10px;
-    background-color: yellow;
-    height: 500px;
-}
+
 
 /* @media only screen and (max-width:670px) {
     .score, .profile {

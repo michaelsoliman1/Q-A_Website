@@ -2,7 +2,6 @@ import React, {Component} from "react"
 import {Navbar} from "../navbar/navbar"
 import "./myprofile.css"
 
-
 export class myProfile extends Component {
     constructor(props) {
         super(props)
@@ -28,12 +27,14 @@ export class myProfile extends Component {
         .then(response => {response.json()
             .then(body => {
                 console.log(body)
-                this.setState({myAnswers : body})                 
+                this.setState({myAnswers : body.answers})                 
             })
+            console.log(this.state.myAnswers)
         })
         .catch(e => {
             console.log(e)
         })
+
     }
 
 
@@ -47,11 +48,12 @@ export class myProfile extends Component {
                 <div className="score">
                     <h2> Your Score : {this.state.score} </h2>
                 </div>
-                
-                {this.state.myAnswers.map(answer => (
-                    <div key={answer._id} className="answers">
-                        <div>{answer.question} </div>
-                        <div>{answer.answer}</div>
+                { !this.state.myAnswers ? <div className = "question"> You didn't answer any questions </div> : 
+                this.state.myAnswers.map(answer => (
+                    <div className="question" key={answer.answer_id}>
+                        <h3>{answer.question} </h3>
+                        <br/>
+                        <h4>{answer.answer}</h4>
                     </div>
                 ))}
             </div>
