@@ -7,6 +7,7 @@ export class myProfile extends Component {
         super(props)
         this.state = {
             myAnswers: [],
+            answerError: "",
             score : "",
 
         }
@@ -26,10 +27,16 @@ export class myProfile extends Component {
         })
         .then(response => {response.json()
             .then(body => {
-                console.log(body)
-                this.setState({myAnswers : body.answers})                 
+                if (response.status === 200) {
+                    this.setState({myAnswers : body.answers})                 
+                }
+                else if (response.status === 404) {
+                    this.setState({
+                        answerError: "You didn't answer any questions!",
+                        myAnswers: undefined
+                    })
+                }
             })
-            console.log(this.state.myAnswers)
         })
         .catch(e => {
             console.log(e)
@@ -48,7 +55,7 @@ export class myProfile extends Component {
                 <div className="score">
                     <h2> Your Score : {this.state.score} </h2>
                 </div>
-                { !this.state.myAnswers ? <div className = "question"> You didn't answer any questions </div> : 
+                { !this.state.myAnswers ? <div className = "question"> {this.state.answerError} </div> : 
                 this.state.myAnswers.map(answer => (
                     <div className="question" key={answer.answer_id}>
                         <h3>{answer.question} </h3>

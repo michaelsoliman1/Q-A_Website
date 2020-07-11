@@ -44,7 +44,9 @@ exports.getActiveQuestion = async (req, res) => {
     const question = await Question.findOne({expired : false})
     try {
         if(!question){
-            return res.status(404).send()
+            return res.status(404).send({
+                message: "There is no active questions right now"
+            })
         }
     
         res.send({question})

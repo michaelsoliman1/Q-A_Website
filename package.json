@@ -26,6 +26,7 @@
     "start": "react-scripts start",
     "build:client": "react-scripts build",
     "build:server": "node server/server.js",
+    "seed": "node server/db/seed.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "nodemon server/server.js"

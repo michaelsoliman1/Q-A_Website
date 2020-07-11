@@ -35,13 +35,12 @@ export class Home extends Component {
         .then((response) => {
             response.json()
             .then((body) => {
-                if (body.question) {
+                if (response.status === 200) {
                     this.setState({activeQuestion: body.question})
                 }
-                else {
-                    this.setState({questionError: "No questions right now!"})
+                else if (response.status === 404) {
+                    this.setState({questionError: "No active questions right now!"})
                 }
-                console.log(this.state.activeQuestion)
             })
         })
         .catch(e => {
@@ -129,7 +128,7 @@ export class Home extends Component {
                 {/*<Sidebar/>*/}
                 <Navbar/>
                 {/*a question component should be seperate from the home compenent*/}
-                {!this.state.activeQuestion ? (<h2>{this.state.questionError}</h2> ) : 
+                {!activeQuestion ? (<h2>{this.state.questionError}</h2> ) : 
                 (
                     <div className="question" >
                         <h3>{activeQuestion.question}</h3>
