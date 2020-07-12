@@ -28,6 +28,11 @@ const userSchema = mongoose.Schema ({
         type: Number,
         defualt: 0
     },
+    role : {
+        type: String,
+        enum : ['user','admin'],
+        default: 'user'
+    },
     image:{
         // empty for now
     },
