@@ -1,3 +1,4 @@
+require('dotenv').config()
 const seeder = require('mongoose-seed');
 
 console.log(process.env.MONGODB_URL)
@@ -24,10 +25,10 @@ const data = [
         'model': 'User',
         'documents': [
             {
-                "userName": "seedtest",
-                "fullName": "seedtest",
-                "password": "12345678",
-                "points": "10"
+                "userName": "user1",
+                "fullName": "user1",
+                "password": "123123123",
+                "points": "0"
             }
         ]
     },
